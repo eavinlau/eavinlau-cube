@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EL-Cube</title>
+    <link rel="stylesheet" href="css/mirror.css">
+</head>
+
+<body cz-shortcut-listen="true">
+    <div id="app">
+        <div class="login-bg">
+            <div class="login-bg_pattern">
+                <div class="login-bg_left-top-circle"></div>
+                <div class="login-bg_left100-top-circle"></div>
+                <div class="login-bg_right-top-circle"></div>
+                <div class="login-bg_right-bottom-circle"></div>
+                <div class="login-bg_left-bottom-circle"></div>
+            </div>
+            <div class="login-login_box">
+                <div class="el-row is-justify-center el-row--flex">
+                    <div class="el-col el-col-24 el-col-xs-22 el-col-sm-20 el-col-md-20 el-col-lg-20 el-col-xl-14">
+                        <div class="grid-content">
+                            <div class="key">
+                                <div class="bottom-img"></div>
+                                <div class="form-info mt14vh pb50" style="margin-left: 5vw;">
+                                    <div class="el-row" style="margin-left: -10px; margin-right: -10px;">
+                                        <div class="el-col el-col-24 el-col-xs-22 el-col-sm-14 el-col-md-10 el-col-lg-8 el-col-xl-7"
+                                            style="padding-left: 10px; padding-right: 10px;">
+                                            <div class="logo"></div>
+                                            <form action="login" method="post">
+                                                <ul class="user-info mt60">
+                                                    <li class="user-input"><input placeholder="请输入用户名" id="usernameIput"
+                                                            type="text" required="required" autocomplete="username" name="username"
+                                                            class="effect">
+                                                        <label>用户名</label></li>
+                                                    <li class="user-input"><input placeholder="请输入密码" id="passwordIput" name="password"
+                                                            type="password" required="required"
+                                                            autocomplete="current-password" class="effect">
+                                                        <label>密码</label></li>
+														<div id="errorinfo"></div>
+                                                    <li class="mt50"><button type="submit" class="el-button buttonSize button-solid goHome el-button--primary">
+                                                            <span>登&nbsp;&nbsp;录</span></button></li>
+                                                </ul>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script>
+  $(function () {
+    var info=window.location.search;
+    console.log(window.location.search);
+    if(info=="?error"){
+    	$("#errorinfo").html("<span style=\"color:red\">账号或密码错误，请重新输入！</span>");
+    }else{
+    	$("#errorinfo").html("");
+    }
+  });
+</script>
+</body>
+
+</html>

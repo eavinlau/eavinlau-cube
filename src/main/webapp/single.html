@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html ng-app="elCube" ng-controller="elcubeCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EL-Cube</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <link rel="stylesheet" href="css/welcome.css">
+    
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="css/elcube.css">
+    <link rel="stylesheet" href="css/tabs.sideways.css">
+    <!-- ngJsTree -->
+    <link rel="stylesheet" href="plugins/ngJsTree/style.css">
+    <link rel="stylesheet" href="plugins/jQueryUI/theme.css">
+    <link rel="stylesheet" href="plugins/jQueryUI/jquery-ui.css">
+
+
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=cvRc3w8uiKsprOdmDe4OqBeufl0ESnZv"></script>
+   
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.css">
+
+    <script src="plugins/echart/echarts-3.6.2.min.js"></script>
+    <!-- bmap-->
+    <script src="plugins/echart/echarts-bmap.min.js"></script>
+
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+
+    <script src="com/eavinlau/Settings.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+    <script src="lib/angular-md5.min.js"></script>
+    <script src="lib/angular-drag-and-drop-lists.js"></script>
+    <script src="lib/angular-sanitize.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls-2.1.3.min.js"></script>
+    <script src="lib/angular-translate.js"></script>
+    <script src="lib/angular-translate-loader-partial.js"></script>
+
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/numbro.min.js"></script>
+    <script src="lib/ui-select.min.js"></script>
+
+    <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.js"></script>
+    <!--ngJsTree -->
+    <script src="plugins/ngJsTree/jstree.js"></script>
+    <script src="plugins/ngJsTree/ngJsTree.js"></script>
+
+    <!-- ECharts -->
+    <script src="plugins/echart/theme-fin1.js"></script>
+    <script src="plugins/echart/dark.js"></script>
+    <script src="plugins/echart/echarts-wordcloud.min.js"></script>
+    <script src="plugins/echart/echarts-liquidfill.min.js"></script>
+
+    <script src="lib/jquery.ba-resize.js"></script>
+    <script src="plugins/ace/ace.js"></script>
+    <script src="plugins/ace/cb-complete-list.js"></script>
+    <script type="text/javascript" src="plugins/ace/ext-language_tools.js"></script>
+    <script src="plugins/ui-ace/ui-ace.js"></script>
+    <script src="plugins/FineMap/d3.v3.js"></script>
+    <script src="plugins/FineMap/d3.tip.js"></script>
+
+    <link rel="stylesheet" href="plugins/rzslider/rzslider.min.css">
+    <script src="plugins/rzslider/rzslider.min.js"></script>
+
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <script src="plugins/daterangepicker/moment.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="lib/angular-daterangepicker.min.js"></script>
+    <link rel="stylesheet" href="css/angular-cron-jobs.min.css">
+    <script src="lib/angular-cron-jobs.min.js"></script>
+
+    <!-- vue-->
+    <script src="plugins/vue/vue.js"></script>
+    <script src="plugins/vue/vue-router.js"></script>
+    <script src="plugins/vue/vue-resource.min.js"></script>
+
+    <!-- cockpit-->
+    <link rel="stylesheet" href="css/admin.css">
+
+    <!-- interact-->
+    <script src="plugins/interact/interact.min.js"></script>
+
+    <!-- element-ui -->
+    <script src="plugins/element-ui/2.x/element-ui.min.js"></script>
+    <script src="plugins/element-ui/1.x/element-ui.min.js"></script>
+    <link rel="stylesheet" href="plugins/element-ui/2.x/theme-chalk/element-ui.min.css">
+    <link rel="stylesheet" href="plugins/element-ui/1.x/theme-default/element-ui.min.css">
+
+
+    <link rel="stylesheet" href="css/select.css">
+
+    <link rel="stylesheet" href="plugins/timeline/map_tree.css">
+    <script src="plugins/timeline/timeline.js"></script>
+
+    <link rel="stylesheet" href="plugins/tree/tree.css">
+    <script src="plugins/tree/tree.js"></script>
+    <script src="lib/angular-uuid4.min.js"></script>
+
+    <link rel="stylesheet" href="plugins/jquery-contextmenu/jquery.contextMenu.min.css">
+    <script src="plugins/jquery-contextmenu/jquery.contextMenu.min.js"></script>
+    <script src="plugins/jquery-contextmenu/jquery.ui.position.min.js"></script>
+
+    <link rel="stylesheet" href="plugins/colorpicker/bootstrap-colorpicker.min.css">
+    <script src="plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+</head>
+<body >
+<div class="wrapper" style="width: 100%;min-height: 100vh;background: transparent;">
+    <div class="content-wrapper" style="margin-left:0px">
+        <ui-view>
+        </ui-view>
+    </div>
+</div>
+
+<script src="com/eavinlau/util/ELCubeEChartUtils.js"></script>
+<script src="com/eavinlau/util/ELCubeEChartRender.js"></script>
+<script src="com/eavinlau/util/ELCubeCommonUtils.js"></script>
+<script src="com/eavinlau/util/ELCubeKpiRender.js"></script>
+<script src="com/eavinlau/util/ELCubeTableRender.js"></script>
+<script src="com/eavinlau/util/ELCubeMapRender.js"></script>
+<script src="com/eavinlau/util/ELCubeJsTreeUtils.js"></script>
+<script src="com/eavinlau/util/ELCubeHeatMapRender.js"></script>
+<script src="com/eavinlau/util/ELCubeBmapRender.js"></script>
+
+<script src="com/eavinlau/service/dashboard/cockpitLayoutService.js"></script>
+
+<!-- AngularJS-->
+<script src="com/eavinlau/ng-app.js"></script>
+<script src="com/eavinlau/ng-config.js"></script>
+<script src="com/eavinlau/controller/elcube/elcubeCtrl.js"></script>
+<script src="com/eavinlau/controller/elcube/homepageCtrl.js"></script>
+<script src="com/eavinlau/controller/dashboard/dashboardViewCtrl.js"></script>
+<script src="com/eavinlau/controller/config/widgetCtrl.js"></script>
+<script src="com/eavinlau/controller/config/datasourceCtrl.js"></script>
+<script src="com/eavinlau/controller/config/boardCtrl.js"></script>
+<script src="com/eavinlau/controller/config/freeLayoutCtrl.js"></script>
+<script src="com/eavinlau/controller/config/folderTreeCtrl.js"></script>
+<script src="com/eavinlau/controller/config/categoryCtrl.js"></script>
+<script src="com/eavinlau/controller/config/datasetCtrl.js"></script>
+<script src="com/eavinlau/controller/admin/userAdminCtrl.js"></script>
+<script src="com/eavinlau/controller/config/jobCtrl.js"></script>
+<script src="com/eavinlau/controller/config/job/mailJobCtrl.js"></script>
+<script src="com/eavinlau/controller/dashboard/paramCtrl.js"></script>
+<script src="com/eavinlau/controller/config/shareResCtrl.js"></script>
+<script src="com/eavinlau/controller/config/cockpitLayoutCtrl.js"></script>
+<script src="com/eavinlau/controller/utils/paramSelector.js"></script>
+<script src="com/eavinlau/controller/utils/paramSelector-config.js"></script>
+
+<script src="com/eavinlau/service/dashboard/dashboardService.js"></script>
+<script src="com/eavinlau/service/dashboard/freeLayoutService.js"></script>
+<script src="com/eavinlau/service/data/dataService.js"></script>
+<script src="com/eavinlau/service/util/ModalUtils.js"></script>
+<script src="com/eavinlau/service/updater/updateService.js"></script>
+<!-- 小时省份行为指标表格 -->
+<script src="com/eavinlau/service/chart/chartDataProcess.js"></script>
+<script src="com/eavinlau/service/chart/chartFunnelService.js"></script>
+<script src="com/eavinlau/service/chart/chartKpiService.js"></script>
+<!-- 小时支付指标柱状图 -->
+<script src="com/eavinlau/service/chart/chartLineService.js"></script>
+<script src="com/eavinlau/service/chart/chartContrastService.js"></script>
+<script src="com/eavinlau/service/chart/chartPieService.js"></script>
+<script src="com/eavinlau/service/chart/chartSankeyService.js"></script>
+<!-- 支付用户省份雷达图 -->
+<script src="com/eavinlau/service/chart/chartRadarService.js"></script>
+<script src="com/eavinlau/service/chart/chartService.js"></script>
+<script src="com/eavinlau/service/chart/chartMapService.js"></script>
+<script src="com/eavinlau/service/chart/chartTableService.js"></script>
+<script src="com/eavinlau/service/chart/chartScatterService.js"></script>
+<script src="com/eavinlau/service/chart/chartGaugeService.js"></script>
+<script src="com/eavinlau/service/chart/chartWordCloudService.js"></script>
+<script src="com/eavinlau/service/chart/chartTreeMapService.js"></script>
+<!-- 地图类看板（浏览行为地图、订单出发省份中国地图） -->
+<script src="com/eavinlau/service/chart/chartAreaMapService.js"></script>
+<!-- 日期行为日历图 -->
+<script src="com/eavinlau/service/chart/chartHeatMapCalendarService.js"></script>
+<!-- 客户订单状态热力图 -->
+<script src="com/eavinlau/service/chart/chartHeatMapTableService.js"></script>
+<script src="com/eavinlau/service/chart/chartLiquidFillService.js"></script>
+<!-- 地图类看板(散点图) -->
+<script src="com/eavinlau/service/chart/chartChinaMapService.js"></script>
+<!-- 地图类看板(散点图) -->
+<script src="com/eavinlau/service/chart/chartChinaMapBmapService.js"></script>
+<script src="com/eavinlau/service/chart/chartRelationService.js"></script>
+<script src="com/eavinlau/service/chart/chartWorldMapService.js"></script>
+<script src="com/eavinlau/directive/dashboard/dashboardWidget.js"></script>
+<script src="com/eavinlau/filter/dashboard/dashboardViewFilter.js"></script>
+
+<script src="plugins/crossTable/plugin.js"></script>
+<script src="plugins/FineMap/plugin.js"></script>
+<!--<script src="plugins/FineMap/.js"></script>-->
+
+<script type="text/ng-template" id="echartContent">
+    <div class="col-md-{{widget.width}}">
+        <div class="box box-solid behavioe_echarts_box echart_content" style="z-index: 99;">
+            <div class="box-header" ng-mouseover="x=true" ng-mouseleave="x=false">
+                <!--<i class="fa fa-bar-chart-o"></i>-->
+                <h3 class="box-title box_title_h3 h89" >{{widget.name}}</h3>
+                <div class="box-tools pull-right" ng-show="x" ng-init="x=false">
+                    <button name="reload_{{widget.widget.id}}" type="button" class="btn btn-box-tool" ng-click="reload(widget)"><i
+                            class="fa fa-refresh"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" ng-if="widgetCfg" ng-click="config(widget)"><i
+                            class="fa fa-wrench"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" ng-click="modalChart(widget)"><i
+                            class="fa fa-square-o"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body" style="border-top: 2px solid #fff;" ng-style="{height:myheight+'px'}" style="padding: 3px 0px 3px 13px;">
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="kpiContent">
+    <div class="col-md-{{widget.width}} kpi-body kpi_behavior kpi_content"/>
+</script>
+<script type="text/ng-template" id="mapContent">
+    <div class="col-md-{{widget.width}}">
+        <div class="box box-solid behavioe_echarts_box map_content" style="z-index: 99; ">
+            <div class="box-header" ng-mouseover="x=true" ng-mouseleave="x=false">
+                <!--<i class="fa fa-bar-chart-o"></i>-->
+                <h3 class="box-title box_title_h3">{{widget.name}}</h3>
+                <div class="box-tools pull-right" ng-show="x" ng-init="x=false">
+                    <button name="reload_{{widget.widget.id}}" type="button" class="btn btn-box-tool" ng-click="reload(widget)"><i
+                            class="fa fa-refresh"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" ng-if="widgetCfg" ng-click="config(widget)"><i
+                            class="fa fa-wrench"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" ng-click="modalChart(widget)"><i
+                            class="fa fa-square-o"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="map-body con_cale" style="border-top: 2px solid #fff;" ng-style="{height:myheight+'px'}" style="padding: 3px 0px 3px 13px;">
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="chartContent">
+    <div class="col-md-{{widget.width}}" style="z-index: 99;">
+        <div class="box box-solid behavioe_echarts_box">
+            <div class="box-header" ng-mouseover="x=true" ng-mouseleave="x=false">
+                <!--<i class="fa fa-bar-chart-o"></i>-->
+                <h3 class="box-title tit_h3" >{{widget.name}}</h3>
+                <div style="color:#fff" class="box-tools pull-right" ng-show="x" ng-init="x=false">
+                    <button name="reload_{{widget.widget.id}}" type="button" class="btn btn-box-tool" ng-click="reload(widget)"><i
+                            class="fa fa-refresh"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" ng-if="widgetCfg" ng-click="config(widget)"><i
+                            class="fa fa-wrench"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" ng-click="modalTable(widget)"><i
+                            class="fa fa-square-o"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body con_dsl" style="border-top: 2px solid #fff;" ng-style="{height:myheight+'px'}" style="padding: 3px 0px 3px 13px;">
+            </div>
+        </div>
+    </div>
+</script>
+</body>
+</html>

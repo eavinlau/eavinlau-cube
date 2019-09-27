@@ -1,0 +1,10 @@
+<div class="btn-group" style="cursor: move;margin: 3px 3px;">
+    <button style="" type="button" class="btn btn-sm behaver_btn" title="{{param.title}}" ng-class="{true:'btn-primary',false:'btn-default'}[param.values.length>0]"
+            ng-click="editParam()">
+        {{param.name}}
+    </button>
+    <button style="" type="button" class="btn btn-sm behaver_btn dropdown-toggle" ng-class="{true:'btn-primary',false:'btn-default'}[param.values.length>0]"
+            ng-click="editParam()">
+        <span class="fa fa-edit"></span>
+    </button>
+</div>
