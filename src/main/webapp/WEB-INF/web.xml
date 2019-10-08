@@ -4,19 +4,19 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-            classpath:spring-datasource.xml,classpath:spring.xml,classpath:spring-mvc.xml,classpath:spring-mybatis.xml,classpath:spring-security.xml,
-        </param-value>
+         classpath:spring.xml,classpath:spring-mvc.xml,classpath:spring-mybatis.xml,classpath:spring-security.xml,
+    </param-value>
   </context-param>
   <servlet>
     <servlet-name>DruidStatView</servlet-name>
     <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
     <init-param>
       <param-name>loginUsername</param-name>
-      <param-value>admin</param-value>
+      <param-value>eavinlau</param-value>
     </init-param>
     <init-param>
       <param-name>loginPassword</param-name>
-      <param-value>root123</param-value>
+      <param-value>123456</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
