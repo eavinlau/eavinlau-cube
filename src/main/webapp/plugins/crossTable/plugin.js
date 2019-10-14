@@ -90,7 +90,7 @@ var crossTable = {
         var optionDom = "<select><option value='10'>10</option><option value='20'>20</option><option value='50'>50</option><option value='100'>100</option><option value='150'>150</option></select>";
         var p_class = "p_" + random;
         var PaginationDom = "<div class='" + p_class + "'><div class='optionNum'><span>" + elcubeTranslate("CROSS_TABLE.SHOW") + "</span>" + optionDom + "<span>" + elcubeTranslate("CROSS_TABLE.ENTRIES") + "</span></div><div class='page'><ul></ul></div></div>";
-        var operate = "<div class='toolbar toolbar" + random + "'><span class='info'><b>info: </b>" + rowNum + " x " + colNum + "</span>" +
+        var operate = "<div class='toolbar toolbar" + random + "'><span class='info'><b>行x列: </b>" + rowNum + " x " + colNum + "</span>" +
             "<span class='exportBnt' title='" + elcubeTranslate("CROSS_TABLE.EXPORT") + "'></span>" +
             "<span class='exportCsvBnt' title='" + elcubeTranslate("CROSS_TABLE.EXPORT_CSV") + "'></span></div>";
         $(container).html(operate);
