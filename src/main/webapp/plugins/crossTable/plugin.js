@@ -89,10 +89,10 @@ var crossTable = {
         html = html + trDom + "</tbody></table>";
         var optionDom = "<select><option value='10'>10</option><option value='20'>20</option><option value='50'>50</option><option value='100'>100</option><option value='150'>150</option></select>";
         var p_class = "p_" + random;
-        var PaginationDom = "<div class='" + p_class + "'><div class='optionNum'><span>" + ajcubeTranslate("CROSS_TABLE.SHOW") + "</span>" + optionDom + "<span>" + ajcubeTranslate("CROSS_TABLE.ENTRIES") + "</span></div><div class='page'><ul></ul></div></div>";
+        var PaginationDom = "<div class='" + p_class + "'><div class='optionNum'><span>" + elcubeTranslate("CROSS_TABLE.SHOW") + "</span>" + optionDom + "<span>" + elcubeTranslate("CROSS_TABLE.ENTRIES") + "</span></div><div class='page'><ul></ul></div></div>";
         var operate = "<div class='toolbar toolbar" + random + "'><span class='info'><b>info: </b>" + rowNum + " x " + colNum + "</span>" +
-            "<span class='exportBnt' title='" + ajcubeTranslate("CROSS_TABLE.EXPORT") + "'></span>" +
-            "<span class='exportCsvBnt' title='" + ajcubeTranslate("CROSS_TABLE.EXPORT_CSV") + "'></span></div>";
+            "<span class='exportBnt' title='" + elcubeTranslate("CROSS_TABLE.EXPORT") + "'></span>" +
+            "<span class='exportCsvBnt' title='" + elcubeTranslate("CROSS_TABLE.EXPORT_CSV") + "'></span></div>";
         $(container).html(operate);
         $(container).append("<div class='tableView table_" + random + "' style='width:99%;max-height:" + (tall ? tall + "px" : "70%") + ";overflow:auto'>" + html + "</div>");
         $(container).append(PaginationDom);
@@ -121,10 +121,10 @@ var crossTable = {
                 var value = $trigger.html();
                 var items = {};
                 if (up) {
-                    items.up = {name: ajcubeTranslate("COMMON.ROLL_UP"), icon: "fa-arrow-up"}
+                    items.up = {name: elcubeTranslate("COMMON.ROLL_UP"), icon: "fa-arrow-up"}
                 }
                 if (down) {
-                    items.down = {name: ajcubeTranslate("COMMON.DRILL_DOWN"), icon: "fa-arrow-down"}
+                    items.down = {name: elcubeTranslate("COMMON.DRILL_DOWN"), icon: "fa-arrow-down"}
                 }
                 return {
                     callback: function (key, options) {
@@ -297,7 +297,7 @@ var crossTable = {
         if (pageCount == 1) {
             return  target.innerHTML = '';
         }
-        var liStr = '<li><a class="previewLink">' + ajcubeTranslate("CROSS_TABLE.PREVIOUS_PAGE") + '</a></li>';
+        var liStr = '<li><a class="previewLink">' + elcubeTranslate("CROSS_TABLE.PREVIOUS_PAGE") + '</a></li>';
         if (pageCount < 10) {
             for (var a = 0; a < pageCount; a++) {
                 liStr += '<li><a class="pageLink">' + (a + 1) + '</a></li>';
@@ -334,7 +334,7 @@ var crossTable = {
                 }
             }
         }
-        liStr += '<li><a class="nextLink">' + ajcubeTranslate("CROSS_TABLE.NEXT_PAGE") + '</a></li>';
+        liStr += '<li><a class="nextLink">' + elcubeTranslate("CROSS_TABLE.NEXT_PAGE") + '</a></li>';
         if (target) {
             target.innerHTML = liStr;
             if (pageNumber == 1) {
