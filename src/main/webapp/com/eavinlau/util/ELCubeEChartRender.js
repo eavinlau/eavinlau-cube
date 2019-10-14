@@ -114,6 +114,7 @@ ELCubeEChartRender.prototype.addClick = function (chartConfig, relations, $state
     }
     var self = this;
     self.ecc.on('click', function (param){
+    	console.log(param);
         var sourceField = relations.sourceField;
         var links = relations.relations;
         //[{"targetId":relation.targetId, params:[{"targetField":targetField,"value":param.name},{}]}]
@@ -161,7 +162,7 @@ ELCubeEChartRender.prototype.addClick = function (chartConfig, relations, $state
                         });
                         _.each(keys, function (key) {
                             if (key.name == field) {
-                                paramValues.push(param.name.split("-")[key.index]);
+                                paramValues.push(param.name);
                             }
                         });
                     } else {
@@ -216,7 +217,7 @@ ELCubeEChartRender.prototype.addClick = function (chartConfig, relations, $state
                         if($.inArray(field, _.map(keys, function(key){return key.name;}))!=-1){
                             _.each(keys,function(key){
                                 if(key.name == field){
-                                    paramValues.push(param.name.split("-")[key.index]);
+                                    paramValues.push(param.name);
                                 }
                             });
                         }else{
@@ -243,7 +244,7 @@ ELCubeEChartRender.prototype.addClick = function (chartConfig, relations, $state
                     if($.inArray(field, _.map(keys, function(key){return key.name;}))!=-1){
                         _.each(keys,function(key){
                             if(key.name == field){
-                                paramValues.push(param.name.split("-")[key.index]);
+                                paramValues.push(param.name);
                             }
                         });
                     }else{
@@ -285,7 +286,7 @@ ELCubeEChartRender.prototype.addClick = function (chartConfig, relations, $state
             });
             relations_new.push(record);
         });
-
+        console.log(relations_new);
         $("#relations").val(JSON.stringify(relations_new));
         //触发关联图表刷新
         _.each(_.filter(links,function(e){return e.type=="widget"}), function(relation){
@@ -299,6 +300,7 @@ ELCubeEChartRender.prototype.addClick = function (chartConfig, relations, $state
         _.each(_.filter(links,function(e){return e.type=="board"}), function(relation){
             var url = $state.href('mine.view', {id: relation.targetId});
             var param = JSON.stringify(_.find(relations_new, function(e){return e.targetId == relation.targetId}));
+            console.log(url+'********'+param);
             $window.open(encodeURI(url+"?"+param), '_blank');
         });
     });
