@@ -300,7 +300,7 @@ ELCubeEChartRender.prototype.addClick = function (chartConfig, relations, $state
         _.each(_.filter(links,function(e){return e.type=="board"}), function(relation){
             var url = $state.href('mine.view', {id: relation.targetId});
             var param = JSON.stringify(_.find(relations_new, function(e){return e.targetId == relation.targetId}));
-            console.log(url+'********'+param);
+            console.log(url+"?"+param);
             $window.open(encodeURI(url+"?"+param), '_blank');
         });
     });

@@ -66,9 +66,8 @@ public class MailService {
         	String url = new StringBuffer(LocalSecurityFilter.getSchema())
         			.append("://"+hostAddress+":")
         			.append(LocalSecurityFilter.getContext())
-        			.append("/render.html")
-        			.append("?sid=").append(sid)
-        			.append("#?id=").append(obj.getString("id"))
+        			.append("/single.html#/mine/")
+        			.append(obj.getString("id"))
         			.toString();
         	LOG.info(url);
         	LocalSecurityFilter.put(sid, job.getUserId());
