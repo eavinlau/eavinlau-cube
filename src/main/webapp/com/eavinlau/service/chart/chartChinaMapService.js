@@ -388,6 +388,9 @@ elCube.service('chartChinaMapService', function () {
                     },
                     tooltip : {
                     	trigger: 'item',
+                    	position: function (point, params, dom, rect, size) {
+	   	                     return [point[0]+8, point[1]+8];
+	   					},
                         formatter:function(params, ticket, callback){
                           if(params.seriesType=="effectScatter") {
                         	  if (params.data.value[2]) {

@@ -55,10 +55,11 @@ elCube.service('chartAreaMapService', function($state, $window) {
 				type : 'map',
 				map : code,
 				tooltip : {
-					trigger : 'item'
+					trigger : 'item',
+					position: function (point, params, dom, rect, size) {
+	                     return [point[0]+8, point[1]+8];
+					}
 				},
-				/*zoom: 1,
-		        roam: true,*/
 				label : {
 					normal : {
 						show : true,
@@ -81,7 +82,7 @@ elCube.service('chartAreaMapService', function($state, $window) {
 				itemStyle: {
                     normal: {
                     	borderWidth: 1,
-                        areaColor: '#0083ce',
+                        areaColor: '#C1C1C1',
                         borderColor: "#43d0d6" //地图边框颜色
                     },
                     emphasis: {
