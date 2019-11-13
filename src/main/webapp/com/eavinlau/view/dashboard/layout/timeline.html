@@ -14,8 +14,20 @@
             <div class="col-sm-12">
                 <div style="min-height: 35px;height: auto;padding: 0px">
                     <div class="row">
+                        <div ng-repeat="param in timelineFilter.params | filter:{paramType:'datesinglepicker'}:true" ng-controller="paramCtrl" ng-init="init()">
+                           <ng-include src="'com/anjiplus/view/dashboard/param/datesinglepicker.html'" style="float: left"/>
+                        </div>
+                        <div ng-repeat="param in timelineFilter.params | filter:{paramType:'daterangepicker'}:true" ng-controller="paramCtrl" ng-init="init()">
+                           <ng-include src="'com/anjiplus/view/dashboard/param/daterangepicker.html'" style="float: left"/>
+                        </div>
+                        <div ng-repeat="param in timelineFilter.params | filter:{paramType:'single'}:true" ng-controller="paramCtrl" ng-init="init()">
+                           <ng-include src="'com/anjiplus/view/dashboard/param/single.html'" style="float: left"/>
+                        </div>
+                        <div ng-repeat="param in timelineFilter.params | filter:{paramType:'multiple'}:true" ng-controller="paramCtrl" ng-init="init()">
+                           <ng-include src="'com/anjiplus/view/dashboard/param/multiple.html'" style="float: left"/>
+                        </div>
                         <div ng-repeat="param in timelineFilter.params | filter:{paramType:'selector'}:true" ng-controller="paramCtrl" ng-init="init()">
-                        <ng-include src="'com/eavinlau/view/dashboard/param/selector.html'" style="float: left"/>
+                           <ng-include src="'com/anjiplus/view/dashboard/param/selector.html'" style="float: left"/>
                         </div>
                     </div>
                     <div class="row">
@@ -32,7 +44,7 @@
         <div class="col-md-12">
             <div class="n_maptree_area">
                 <div class="n_maptree_wrap" ng-repeat="group in timeline">
-                    <!-- S 主节点 -->
+                    <!-- S 涓昏妭鐐� -->
                     <div class="n_maptree_item" ng-style="{clear:row.show?'both':'none'}" ng-repeat="row in group"
                          ng-class="{'leaf':'n_maptree_item_s'}[row.node]" ng-switch="row.node">
                         <span ng-switch-when="parent"
@@ -43,7 +55,7 @@
                         <div class="timeline-item" ng-style="{display:row.show?'block':'none'}">
                             <div class="arrow-left"></div>
                             <span class="n_on_off">
-                                <i class="n_btn_n1 fa text-yellow fa-chevron-circle-up" title="收起"></i>
+                                <i class="n_btn_n1 fa text-yellow fa-chevron-circle-up" title="鏀惰捣"></i>
                             </span>
                             <h3 class="timeline-header">{{row.title}}</h3>
                             <div class="timeline-body row">
@@ -92,9 +104,9 @@
                                                     </div>
                                                     <div class="box-body"
                                                          ng-style="{height:row.height?row.height:300+'px'}">
-                                                        {{'ADMIN.CONTACT_ADMIN' | translate}}：<br>
+                                                        {{'ADMIN.CONTACT_ADMIN' | translate}}锛�<br>
                                                         <ul>
-                                                            <li ng-repeat="ri in widget.roleInfo"> {{ri.type | translate}}：{{ri.name}} </li>
+                                                            <li ng-repeat="ri in widget.roleInfo"> {{ri.type | translate}}锛歿{ri.name}} </li>
                                                         </ul>
                                                     </div>
                                                 </div>
