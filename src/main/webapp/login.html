@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EL-Cube</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/mirror.css">
     <style>
     @media (max-width: 1080px) {
         .login-login_box .key .right-img{
             background-image:none;
         }
+    }
+    #changeCaptcha{
+    	z-index:99;
+    	width: 125px;
+    	height: 45px; 
+    	display: inline-block;
+    	padding-left: 15px;
+    	margin-top: 34px;
+    	vertical-align: middle
     }
     </style>
 </head>
@@ -37,7 +46,7 @@
                                         <div class="el-col el-col-24 el-col-xs-22 el-col-sm-14 el-col-md-10 el-col-lg-8 el-col-xl-7"
                                             style="padding-left: 10px; padding-right: 10px;">
                                             <div class="logo"></div>
-                                            <form action="login" method="post">
+                                            <form id="loginForm" action="login" method="post">
                                                 <ul class="user-info mt60">
                                                     <li class="user-input"><input placeholder="请输入用户名" id="usernameIput"
                                                             type="text" required="required" autocomplete="username" name="username"
@@ -47,11 +56,21 @@
                                                             type="password" required="required"
                                                             autocomplete="current-password" class="effect">
                                                         <label>密码</label></li>
+                                             
+                                                        <li class="user-input" style="width: 100px; display: inline-block;vertical-align: middle">
+                                                        		<input placeholder="请输入验证码" id="captchaCode" name="captchacode"
+                                                            type="text" required="required"
+                                                            autocomplete="current-Captcha" class="effect">
+                                                            <label>验证码</label>
+                                                        </li>
+                                                        <img id="changeCaptcha" src="" alt=""/>
+                                                        
 														<div id="errorinfo"></div>
-                                                    <li class="mt50"><button type="submit" class="el-button buttonSize button-solid goHome el-button--primary">
+                                                    <li class="mt50"><button type="button" id="loginButton" class="el-button buttonSize button-solid goHome el-button--primary">
                                                             <span>登&nbsp;&nbsp;录</span></button></li>
                                                 </ul>
                                             </form>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -65,6 +84,58 @@
     <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script>
   $(function () {
+	//获取验证码图片 
+	$("#changeCaptcha").click(function(){
+		changeCaptcha();
+	});
+	
+	changeCaptcha();
+	  function changeCaptcha(){
+	      $("#changeCaptcha").attr("src","captcha/getCaptchaCode.do");
+	  }
+	  
+	  //验证输入的验证码 
+	  function checkCaptcha(){
+	      var captchaCode = $("#captchaCode").val();
+	      $.ajax({
+	          type:'post',
+	          async : false,
+	          url:'captcha/checkCaptchaCode.do',
+	          data:{"captchaCode" : captchaCode},
+	          success:function(res){
+	        	if (res=="ok") {
+	        		$('#loginForm').submit();
+				}else {
+					$("#errorinfo").html("<span style=\"color:red\">验证码错误！</span>");
+					changeCaptcha();
+				}
+	          },
+	          error:function(res){
+	              alert(res);
+	              changeCaptcha();
+	          }
+	      });
+	  } 
+	  
+	  $("#loginButton").click(function() {
+		 var usernameIput =  $("#usernameIput").val();
+		 var passwordIput =  $("#passwordIput").val();
+		 var captchaCode =  $("#captchaCode").val();
+		 if (usernameIput=="") {
+			  $("#errorinfo").html("<span style=\"color:red\">用户名不能为空！</span>");
+			  return;
+		}
+		 if (passwordIput=="") {
+			  $("#errorinfo").html("<span style=\"color:red\">密码不能为空！</span>");
+			  return;
+		}
+		  if (captchaCode=="") {
+			  $("#errorinfo").html("<span style=\"color:red\">验证码不能为空！</span>");
+			  return;
+		}
+		  checkCaptcha();
+	})
+	  
     var info=window.location.search;
     console.log(window.location.search);
     if(info=="?error"){
