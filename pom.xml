@@ -357,12 +357,33 @@
 			<version>0.12.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.cloudera.impala/jdbc -->
+		<!-- https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc -->
 		<dependency>
-			<groupId>com.cloudera.impala</groupId>
-			<artifactId>jdbc</artifactId>
-			<version>2.5.31</version>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-jdbc</artifactId>
+			<version>1.1.0</version>
+			<exclusions>
+                <exclusion>
+                    <groupId>jdk.tools</groupId>
+                    <artifactId>jdk.tools</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.cloudera/ImpalaJDBC41 -->
+
+		<dependency>
+			<groupId>com.cloudera</groupId>
+			<artifactId>ImpalaJDBC41</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.1.0</version>
+		</dependency>
+		
+		
 		<!-- Kaptcha 验证码插件 -->
 		<dependency>
 		    <groupId>com.github.penggle</groupId>
